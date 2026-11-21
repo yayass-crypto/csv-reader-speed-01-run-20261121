@@ -210,16 +210,20 @@ export function run(input) {
     if (fAdded > 0) error('quote_junk');
   }
 
-  // One record, field by field (the general path). Returns {fields, quoted}.
+  // One record, field by field (the general path). The fields land in
+  // slowFields and the last field's quoted flag in slowQuoted (no fresh
+  // object per record).
+  let slowFields = [];
+  let slowQuoted = false;
   function readRecordSlow() {
-    const fields = [];
+    slowFields = [];
     let quoted = false;
     do {
       quoted = text.charCodeAt(pos) === 34;
       if (quoted) readQuoted(); else readUnquoted('', 0);
-      fields.push(fValue);
+      slowFields.push(fValue);
     } while (fEnded === COMMA);
-    return { fields, quoted };
+    slowQuoted = quoted;
   }
 
   // Width, short/long-row errors and padding/cutting for one record.
@@ -277,7 +281,9 @@ export function run(input) {
       continue;
     }
 
-    const { fields, quoted } = readRecordSlow();
+    readRecordSlow();
+    const fields = slowFields;
+    const quoted = slowQuoted;
     // A line that held only stray CRs is left with no characters: no record
     // (its stray_cr errors stay).
     if (fields.length === 1 && fields[0] === '' && !quoted) continue;
