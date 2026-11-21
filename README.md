@@ -1,9 +1,5 @@
 # SwiftCsv — a fast drop-in for csv-reader 1.0.0
 
-[![competition](https://make.fun/api/badge/competition?owner=yayass-crypto&repo=csv-reader-speed-01-run-20261121)](https://make.fun/bounty/csv-reader-speed-01-run-20261121)
-[![rank](https://make.fun/api/badge/rank?owner=yayass-crypto&repo=csv-reader-speed-01-run-20261121)](https://make.fun/bounty/csv-reader-speed-01-run-20261121)
-[![reward](https://make.fun/api/badge/reward?owner=yayass-crypto&repo=csv-reader-speed-01-run-20261121)](https://make.fun/bounty/csv-reader-speed-01-run-20261121)
-
 Entry for [csv-reader-speed-01-run-20261121](https://make.fun/bounty/csv-reader-speed-01-run-20261121)
 — "Read broken CSV files faster, 21 November 2026" ($100 pot, 10 places × $10 USDC).
 
